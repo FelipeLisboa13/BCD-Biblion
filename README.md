@@ -14,7 +14,7 @@ Turma: SEDUC 1
 
 Data: 29/10/2026
 
-# Sobre o projeto
+## Sobre o projeto
 O Biblion é um projeto de banco de dados para organizar as informações e a rotina de uma biblioteca. A proposta surgiu a partir da situação de Samiro, que herdou uma biblioteca com milhares de livros e utilizava apenas um caderno para controlar o acervo.
 
 Esse controle manual causava problemas: livros emprestados não eram devolvidos, títulos podiam ser comprados em duplicidade, autores e editoras eram registrados de maneiras diferentes e era difícil saber se um livro estava disponível.
@@ -27,7 +27,7 @@ Objetivos do sistema
 - Manter um histórico dos empréstimos, com informações sobre quem retirou os itens e quando.
 - Consultar a disponibilidade dos exemplares, os atrasos e o histórico de leitura.
 - Organizar os dados com tabelas relacionadas e identificadores consistentes.
-# Como o projeto foi pensado
+## Como o projeto foi pensado
 1. Identificar os problemas do controle manual e as informações necessárias para administrar a biblioteca.
 2. Identificar as entidades principais, como livros, autores, editoras, categorias, clientes e empréstimos.
 3. Diferenciar a obra do exemplar físico e registrar a localização de cada exemplar.
@@ -35,7 +35,7 @@ Objetivos do sistema
 5. Organizar a modelagem com chaves primárias e estrangeiras e aplicar normalização para reduzir duplicações.
 6. Criar e testar a estrutura usando SQL e dados de exemplo.
 
- # Escopo Operacional
+ ## Escopo Operacional
 
  1-Cadastro e Organização do Acervo
 
@@ -57,7 +57,7 @@ Registro e controle dos empréstimos de livros, incluindo os clientes responsáv
 
 Realização de consultas ao banco de dados para verificar a disponibilidade de livros, localizar exemplares, consultar o histórico de empréstimos e identificar informações importantes para a administração da biblioteca.
 
-# Resultados das Querys
+## Resultados das Querys
 
 1-Resultado #1 — Select de livros e autores
 
@@ -84,5 +84,32 @@ Realização de consultas ao banco de dados para verificar a disponibilidade de 
 
 <img width="717" height="179" alt="image" src="https://github.com/user-attachments/assets/87a0c49a-77f8-4489-a8ee-9aff3620de75" />
 
+ # Modelagem do Banco de Dados
 
-#                                   SENAI Suíço-Brasileira | Banco de Dados Relacional
+O banco de dados Biblion foi desenvolvido utilizando o modelo relacional, com tabelas relacionadas por chaves primárias e estrangeiras. A modelagem busca organizar as informações da biblioteca, reduzir a duplicação de dados e manter a integridade das informações.
+
+ ## Principais entidades
+
+- **Livros:** armazena os dados das obras, como título, sinopse, data de publicação, categoria e editora.
+- **Autores:** registra os autores das obras.
+- **Editoras:** armazena as informações das editoras.
+- **Categorias:** organiza os livros por categoria.
+- **Exemplares:** controla cada cópia física dos livros, incluindo código e status.
+- **Localizações:** registra onde cada exemplar está guardado, como corredor, estante e prateleira.
+- **Clientes:** armazena os dados dos leitores cadastrados.
+- **Empréstimos:** registra as retiradas e devoluções dos exemplares.
+- **Livro_Autor:** relaciona livros e autores, permitindo que uma obra tenha mais de um autor.
+- **Item_Emprestimo:** relaciona os empréstimos aos exemplares emprestados.
+
+ ## Relacionamentos
+
+A modelagem utiliza relacionamentos entre as tabelas para conectar as informações. Um livro pode possuir vários exemplares e estar relacionado a vários autores. Cada exemplar possui uma localização registrada, enquanto os empréstimos permitem acompanhar os leitores, os exemplares retirados e as datas de retirada e devolução.
+
+As chaves primárias identificam os registros de cada tabela, enquanto as chaves estrangeiras estabelecem os relacionamentos entre elas.
+
+ # Diagrama Entidade-Relacionamento (DER)
+
+ <img width="1309" height="676" alt="image" src="https://github.com/user-attachments/assets/84a0954d-6e8c-4ab2-8e69-38fb6fbdd5d7" />
+
+
+ #                                      SENAI Suíço-Brasileira | Banco de Dados Relacional
